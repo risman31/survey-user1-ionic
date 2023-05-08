@@ -1,0 +1,77 @@
+ion-header {
+  ion-toolbar {
+    .bordered {
+      --border-radius: 10px;
+      --box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff;
+    }
+  }
+}
+#hdr {
+  --background: #ffffff00;
+}
+#notf {
+  font-family: "Lato", sans-serif;
+  --background: #ffffff;
+  --color: black;
+}
+
+
+ion-title {
+  font-size: 20px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 70px;
+  font-family: "Lato", sans-serif;
+  color: black;
+  font-style: normal;
+}
+
+ion-content {
+  font-size: 14px;
+  // --background: linear-gradient(160deg, #2052a3 50%, #d6d0d0 100%);
+  --background: url("/assets/images/pdam-btk.png");
+
+  font-family: "Lato", sans-serif;
+
+  .data {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    // background-color: transparent;
+    --background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    text-align: center;
+  }
+  .gambar {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    // background-color: transparent;
+    --background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  .detail {
+    font-size: 14px;
+    // background: url("/assets/images/pdam-btk.png");
+    background: rgba(255, 255, 255, 0);
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    width: 320px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+
+  label {
+    font-size: 14px;
+    // color: rgba(0, 54, 217, 0.929);
+    color: rgba(0, 61, 121);
+  }
+
+  .container {
+    padding: 16px;
+  }
+}

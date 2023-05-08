@@ -1,0 +1,97 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header class="ion-no-border">
+    <ion-toolbar id="hdr">
+      <ion-button slot="start" class="bordered" fill="solid" id="notf" routerLink="/report">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <ion-title>Detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <div class="detail">
+    <form>
+      <!-- <div class="ion-text-center">
+        <label>Detail Data</label>
+      </div> -->
+
+      <div class="container">
+        <label for="uname"><b>Nama :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>Elon Musk</b></label>
+        </ion-card>
+
+        <label for="almt"><b>Alamat :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>Jl. Siliwangi No.121, Sukasari, Kec. Bogor Tim., Kota Bogor, Jawa
+              Barat 16142</b></label>
+        </ion-card>
+
+        <label for="nohp"><b>No. Handphone :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>0812345678</b></label>
+        </ion-card>
+
+        <label for="ktp"><b>Foto KTP</b></label>
+        <ion-card class="gambar">
+          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
+          <ion-img-viewer [src]="imgUrlktp" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+        </ion-card>
+
+        <!-- <ion-button (click)="openViewer()">Open Viewer</ion-button><br> -->
+
+        <label for="kk"><b>Foto KK</b></label>
+        <ion-card class="gambar">
+          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
+          <ion-img-viewer [src]="imgUrlkk" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+        </ion-card>
+
+        <label for="rumah"><b>Foto Rumah</b></label>
+        <ion-card class="gambar">
+          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
+          <ion-img-viewer [src]="imgUrlrumah" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+        </ion-card>
+
+        <label for="uname"><b>Jumlah Penghuni :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>100</b></label>
+        </ion-card>
+
+        <label for="listrik"><b>Foto No. Rek Listrik</b></label>
+        <ion-card class="gambar">
+          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
+          <ion-img-viewer [src]="imgUrllistrik" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+        </ion-card>
+
+        <label for="uname"><b>Daya Listrik :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>100kWh</b></label>
+        </ion-card>
+
+        <label for="uname"><b>Usaha :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>Y / N</b></label>
+        </ion-card>
+
+        <label for="uname"><b>Jaringan :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>Y / N</b></label>
+        </ion-card>
+
+        <label for="uname"><b>Jarak :</b></label>
+        <ion-card class="data">
+          <label for="uname"><b>1 centimeter</b></label>
+        </ion-card>
+
+        <label for="uname"><b>Location :</b></label>
+        <ion-card class="data">
+         
+          <a href="http://maps.google.com/maps?q=-6.620017,106.814919" class="card-link" target="_blank"><b>http://maps.google.com/maps?q=-6.620017,106.814919</b></a>
+          
+        </ion-card>
+
+        <!-- <button type="submit" routerLink="/report">Back</button> -->
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,100 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header class="ion-no-border">
+      <img class="logo" src="assets/images/perumda.png" alt="" width="150%" />
+  </ion-header>
+
+
+
+  <ion-item lines="none">
+    <ion-avatar slot="end">
+      <img src="assets/images/elon.jpg" alt="" />
+    </ion-avatar>
+    <ion-label slot="start">
+      <p>Hello,</p>
+      <h3>Elon Musk</h3>
+    </ion-label>
+  </ion-item>
+
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item lines="none" slot="header">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-item>
+      <div slot="content">
+        <ion-button expand="block" fill="clear" shape="round" routerLink="/login">
+          Logout
+        </ion-button>
+      </div>
+      <div class="btn-acr" slot="content">
+        <ion-button expand="block" fill="clear" shape="round" routerLink="#">
+          Change Password
+        </ion-button>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+  
+
+  <div class="slides ion-margin-bottom">
+    <ion-slides options="slidesOptions">
+      <ion-slide>
+        <ion-card class="satu">
+          <ion-card-header>
+            <div class="main">
+              <img src="assets/images/survey.png" />
+            </div>
+            <!-- <img class="files" src="assets/images/perumda.png" /> -->
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-title class="ion-text-center"><strong>FORM SURVEY</strong></ion-card-title> <br>
+            <!-- <ion-card-subtitle class="ion-text-right">10/50 Data</ion-card-subtitle> -->
+            <a href="#" routerLink="/survey" class="card-link">View</a>
+            <!-- <ion-label routerLink="/report" color="primary">View</ion-label> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="slides ion-margin-bottom">
+    <ion-slides options="slidesOptions">
+      <ion-slide>
+        <ion-card class="satu">
+          <ion-card-header>
+            <div class="main">
+              <img src="assets/images/folders.png" />
+            </div>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-title class="ion-text-center"><strong>REPORT SURVEY</strong></ion-card-title> <br>
+            <a href="#" routerLink="/report" class="card-link">View</a>
+            <ion-card-subtitle class="ion-text-right">10 Data</ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <!-- <div class="slides ion-margin-bottom">
+    <ion-slides options="slidesOptions">
+      <ion-slide>
+        <ion-card class="satu">
+          <ion-card-header>
+            <div class="main">
+              <img src="assets/images/folders.png" />
+            </div>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-title class="ion-text-center"><strong>REPORT SURVEY</strong></ion-card-title> <br>
+            <a href="#" routerLink="/data" class="card-link">View</a>
+            <ion-card-subtitle class="ion-text-right">10/50 Data</ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div> -->
+  
+  
+  
+
+</ion-content>

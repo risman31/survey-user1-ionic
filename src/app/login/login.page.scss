@@ -1,0 +1,84 @@
+ion-content {
+  font-size: 14px;
+  // --background: #f1f1f1;
+  --background: url("/assets/images/pdam-btk.png");
+  // --background: rgba(0, 61, 121);
+  font-family: "Lato", sans-serif;
+
+  .logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .login {
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 14px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+  }
+
+  button {
+    font-size: 14px;
+    background-color: #2052a3;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 20px;
+    margin-bottom: auto;
+    width: 100%;
+    height: auto;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  h2 {
+    text-align: center;
+    color: #2052a3;
+    //   font-size:40pt;
+  }
+
+  label {
+    color: #2052a3;
+  }
+
+  .imgcontainer {
+    text-align: center;
+  }
+
+  //  img.avatar{
+  //      width :30%;
+  //      border-radius :50%;
+  //  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+}
