@@ -7,15 +7,12 @@ ion-header {
     }
   }
   #hdr {
-    --background: #ffffff00;
+    --background: #ffffff;
   }
   #notf {
     font-family: "Lato", sans-serif;
     --background: #ffffff;
     --color: black;
-  }
-  #logt {
-    --background: #ffffff;
   }
   
   ion-title {
@@ -30,8 +27,8 @@ ion-header {
   
   ion-content {
     font-size: 14px;
-// --background: linear-gradient(160deg, #2052a3 50%, #d6d0d0 100%);
---background: url("/assets/images/pdam-btk.png");
+--background: linear-gradient(160deg, #2052a3 50%, #d6d0d0 100%);
+// --background: url("/assets/images/pdam-btk.png");
 
     font-family: "Lato", sans-serif;
 
@@ -54,8 +51,8 @@ ion-header {
   
     .survey {
       font-size: 14px;
-      // background: url("/assets/images/pdam-btk.png");
-      background: #ffffff00;
+      background: url("/assets/images/pdam-btk.png");
+      // background: #ffffff00;
       border: 3px solid #ffffff;
       border-radius: 10px;
       width: 320px;
@@ -78,6 +75,79 @@ ion-header {
       background-color: #ffffff;
       margin-bottom: 20px;
     }
+
+    ion-input.num {
+      font-size: 14px;
+      width: 75%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      margin-right: 8px;
+    }
+
+    ion-input.rt {
+      font-size: 14px;
+      width: 25%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      margin-left: 8px;
+
+    }
+
+    ion-input.rw {
+      font-size: 14px;
+      width: 25%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      margin-right: -50px;
+      margin-left: 8px;
+
+    }
+
+    ion-select{
+      font-size: 14px;
+      width: 100%;
+      padding: 10px 20px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    
+    .gambar {
+      margin-top: 10px;
+      margin-bottom: 25px;
+      // background-color: transparent;
+      --background: rgba(255, 255, 255, 0);
+      box-shadow: 10px;
+      text-align: center;
+      border-radius: 10px 10px 10px 10px;
+    }
   
     button {
       font-size: 14px;
@@ -91,6 +161,53 @@ ion-header {
       border: none;
       cursor: pointer;
       border-radius: 10px;
+    }
+
+    button.coord {
+      font-size: 12px;
+      background-color: white;
+      color: #2052a3;
+      padding: 8px 20px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      margin-left: 25px;
+      width: 80%;
+      height: auto;
+      border: 1px solid;
+      cursor: pointer;
+      border-radius: 20px;
+      border-color: #2052a3;
+    }
+
+    button.btnphoto {
+      font-size: 14px;
+      background-color: white;
+      color: #2052a3;
+      padding: 8px 20px;
+      margin-top: 10px;
+      margin-bottom: auto;
+      width: 100%;
+      height: auto;
+      border: 1px solid;
+      cursor: pointer;
+      border-radius: 10px;
+      border-color: #2052a3;
+    }
+
+    button.coordsv {
+      font-size: 12px;
+      background-color: #ffffff;
+      color: #2052a3;
+      padding: 8px 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 25px;
+      width: 80%;
+      height: auto;
+      border: 1px solid;
+      cursor: pointer;
+      border-radius: 10px;
+      border-color: #2052a3;
     }
   
     button:hover {
@@ -107,6 +224,7 @@ ion-header {
       font-size: 14px;
       color: #2052a3;
     }
+
   
     img.avatar {
       width: 30%;
@@ -117,5 +235,50 @@ ion-header {
       padding: 16px;
     }
   
+    // #map_canvas {
+    //   width: 90%;
+    //   height: 50%;
+    //   border: 1px solid red;
+    // }
+    
+    
+    // #address {
+    //   padding: 10px;
+    //   font-size: 18px;
+    //   font-weight: bold;
+    // }
+
+    #map {
+      width: 100%;
+      height: 50vh;
+    }
+
+    ion-grid {
+      margin-top: 10px;
+      margin-left: 20px;
+      color: #2052a3;
+    }
+
+    ion-card.vmaps{
+      width: 285px;
+      margin-left: -22px;
+      margin-bottom: 20px;
+      --background:#ffffff;
+    }
+    
+    .map-wrapper {
+      position: relative;
+    
+      #map_center {
+        position: absolute;
+        z-index: 99;
+        height: 40px;
+        width: 40px;
+        top: 50%;
+        left: 50%;
+        margin-left: -21px;
+        margin-top: -41px;
+      }
+    }
   }
   

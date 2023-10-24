@@ -4,20 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DataPageRoutingModule } from './data-routing.module';
+import { MapsPageRoutingModule } from './maps-routing.module';
 
-import { DataPage } from './data.page';
-
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MapsPage } from './maps.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DataPageRoutingModule,
-    Ng2SearchPipeModule
+    MapsPageRoutingModule
   ],
-  declarations: [DataPage]
+  declarations: [MapsPage]
 })
-export class DataPageModule {}
+export class MapsPageModule {}

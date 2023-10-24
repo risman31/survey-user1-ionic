@@ -7,7 +7,9 @@ ion-header {
   }
 }
 #hdr {
-  --background: #ffffff00;
+  // --background: #ffffff00;
+  --background: #ffffff;
+
 }
 #notf {
   font-family: "Lato", sans-serif;
@@ -27,9 +29,10 @@ ion-title {
 }
 
 ion-content {
+  --overflow: scroll !important;
   font-size: 14px;
-  // --background: linear-gradient(160deg, #2052a3 50%, #d6d0d0 100%);
-  --background: url("/assets/images/pdam-btk.png");
+  --background: linear-gradient(160deg, #2052a3 50%, #d6d0d0 100%);
+  // --background: url("/assets/images/pdam-btk.png");
 
   font-family: "Lato", sans-serif;
 
@@ -37,24 +40,26 @@ ion-content {
     margin-top: 10px;
     margin-bottom: 20px;
     // background-color: transparent;
-    --background: rgba(255, 255, 255, 0);
-    box-shadow: none;
+    --background: rgb(255, 255, 255);
+    box-shadow: 10px;
     text-align: center;
+    padding: 8px 20px;
+    border-radius: 10px;    
   }
   .gambar {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     // background-color: transparent;
     --background: rgba(255, 255, 255, 0);
-    box-shadow: none;
+    box-shadow: 10px;
     text-align: center;
     border-radius: 10px 10px 10px 10px;
   }
 
   .detail {
     font-size: 14px;
-    // background: url("/assets/images/pdam-btk.png");
-    background: rgba(255, 255, 255, 0);
+    background: url("/assets/images/pdam-btk.png");
+    // background: rgba(255, 255, 255, 0);
     border: 3px solid #ffffff;
     border-radius: 10px;
     width: 320px;
@@ -64,14 +69,35 @@ ion-content {
     margin-bottom: 20px;
   }
 
-
   label {
     font-size: 14px;
     // color: rgba(0, 54, 217, 0.929);
     color: rgba(0, 61, 121);
+    margin-left: 10px;
   }
 
   .container {
     padding: 16px;
   }
+
+  button.coord {
+    font-size: 12px;
+      background-color: white;
+      color: #2052a3;
+      padding: 8px 20px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      margin-left: 50px;
+      width: 60%;
+      height: auto;
+      border: 1px solid;
+      cursor: pointer;
+      border-radius: 20px;
+      border-color: #2052a3;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
 }

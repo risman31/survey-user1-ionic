@@ -2,7 +2,7 @@
 <ion-content [fullscreen]="true">
   <ion-header class="ion-no-border">
     <ion-toolbar id="hdr">
-      <ion-button slot="start" class="bordered" fill="solid" id="notf" routerLink="/report">
+      <ion-button slot="start" class="bordered" fill="solid" id="notf" (click)="backData()">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
       <ion-title>Detail</ion-title>
@@ -11,86 +11,150 @@
   
   <div class="detail">
     <form>
-      <!-- <div class="ion-text-center">
-        <label>Detail Data</label>
-      </div> -->
-
       <div class="container">
-        <label for="uname"><b>Nama :</b></label>
+        <label><b>Nama :</b></label>
         <ion-card class="data">
-          <label for="uname"><b>Elon Musk</b></label>
+          <label><b> {{nama}} </b></label>
         </ion-card>
 
-        <label for="almt"><b>Alamat :</b></label>
+        <label><b>Nomor KTP (NIK) :</b></label>
         <ion-card class="data">
-          <label for="uname"><b>Jl. Siliwangi No.121, Sukasari, Kec. Bogor Tim., Kota Bogor, Jawa
-              Barat 16142</b></label>
+          <label><b> {{nik}} </b></label>
         </ion-card>
 
-        <label for="nohp"><b>No. Handphone :</b></label>
+        <label><b>Alamat :</b></label>
         <ion-card class="data">
-          <label for="uname"><b>0812345678</b></label>
+          <label><b> {{alamat}} </b></label>
         </ion-card>
 
-        <label for="ktp"><b>Foto KTP</b></label>
+        <label><b>RT:</b></label>
+        <ion-card class="data">
+          <label><b> {{rt}} </b></label>
+        </ion-card>
+
+        <label><b>RW:</b></label>
+        <ion-card class="data">
+          <label><b> {{rw}} </b></label>
+        </ion-card>
+
+        <label><b>Kelurahan :</b></label>
+        <ion-card class="data">
+          <label><b> {{kelurahan}} </b></label>
+        </ion-card>
+
+        <label><b>Kecamatan :</b></label>
+        <ion-card class="data">
+          <label><b> {{kecamatan}} </b></label>
+        </ion-card>
+
+        <label><b>No. Handphone :</b></label>
+        <ion-card class="data">
+          <label><b> 0{{handphone}} </b></label>
+        </ion-card>
+
+        <label><b>Tanggal Survei</b></label>
+        <ion-card class="data">
+          <label><b> {{tgl}} </b></label>
+        </ion-card>   
+
+        <label><b>Jumlah Penghuni :</b></label>
+        <ion-card class="data">
+          <label><b> {{penghuni}} Orang</b></label>
+        </ion-card>
+
+        <label><b>Luas Bangunan :</b></label>
+        <ion-card class="data">
+          <label><b> {{luasbangunan}} M<sup>2</sup></b></label>
+        </ion-card>
+
+        <label><b>Daya Listrik :</b></label>
+        <ion-card class="data">
+          <label><b> {{daya}} VA </b></label>
+        </ion-card>
+
+        <label><b>Usaha :</b></label>
+        <ion-card class="data">
+          <label><b> {{usaha}} </b></label>
+        </ion-card>
+
+        <label><b>Jaringan :</b></label>
+        <ion-card class="data">
+          <label><b> {{jaringan}} </b></label>
+        </ion-card>
+
+        <label><b>Jarak :</b></label>
+        <ion-card class="data">
+          <label><b> {{jarak}} Meter </b></label>
+        </ion-card>
+
+        <label><b>No. Body Meter :</b></label>
+        <ion-card class="data">
+          <label><b> {{nometer}} </b></label>
+        </ion-card>
+
+        <label><b>Keterangan :</b></label>
+        <ion-card class="data">
+          <label><b> {{keterangan}} </b></label>
+        </ion-card>
+
+        <label><b>Location :</b></label>
+        <ion-card class="data">
+          <!-- <a href="{{lokasi}}" target="_blank"><b> {{lokasi}} </b></a> -->
+          <label><b> {{lokasi}}</b></label>         
+        </ion-card>
+
+        <label><b>Photo KTP</b></label>
         <ion-card class="gambar">
-          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
-          <ion-img-viewer [src]="imgUrlktp" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+          <!-- <ion-img-viewer title="Photo KTP" text="" 
+            [src]="picKtp" alt="" gesture="true">
+          </ion-img-viewer> -->
+          <img [src]="picKtp">
+          <!-- <label><b>{{lbKtp}}</b></label> -->
         </ion-card>
 
-        <!-- <ion-button (click)="openViewer()">Open Viewer</ion-button><br> -->
+        <button (click)="getPhotoKtp()" class="coord" expand="block" fill="clear" shape="round" size="small">
+          <b><ion-icon slot="start" name="image-outline"></ion-icon>
+          Show Photo</b>
+        </button><br>
 
-        <label for="kk"><b>Foto KK</b></label>
+        <label><b>Photo Kartu Keluarga</b></label>
         <ion-card class="gambar">
-          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
-          <ion-img-viewer [src]="imgUrlkk" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+          <!-- <ion-img-viewer title="Photo Kartu Keluarga" text=""
+            [src]="picKk" alt="" gesture="true">
+          </ion-img-viewer> -->
+          <img [src]="picKk">
+          <!-- <label><b>{{lbKk}}</b></label> -->
         </ion-card>
+        <button (click)="getPhotoKk()"class="coord" expand="block" fill="clear" shape="round" size="small">
+          <b><ion-icon slot="start" name="image-outline"></ion-icon>
+          Show Photo</b>
+        </button><br>
 
-        <label for="rumah"><b>Foto Rumah</b></label>
+        <label><b>Photo Rumah</b></label>
         <ion-card class="gambar">
-          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
-          <ion-img-viewer [src]="imgUrlrumah" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+          <!-- <ion-img-viewer title="Photo Rumah" text=""
+            [src]="picRumah" alt="" gesture="true">
+          </ion-img-viewer> -->
+          <img [src]="picRumah">
+          <!-- <label><b>{{lbRumah}}</b></label> -->
         </ion-card>
+        <button (click)="getPhotoRumah()" class="coord" expand="block" fill="clear" shape="round" size="small">
+          <b><ion-icon slot="start" name="image-outline"></ion-icon>
+          Show Photo</b>
+        </button><br>
 
-        <label for="uname"><b>Jumlah Penghuni :</b></label>
-        <ion-card class="data">
-          <label for="uname"><b>100</b></label>
-        </ion-card>
-
-        <label for="listrik"><b>Foto No. Rek Listrik</b></label>
+        <label><b>Photo Meteran/No. Rek. Listrik</b></label>
         <ion-card class="gambar">
-          <!-- <img src="http://bimbingan.api.unbin.ac.id/bukti/{{images}}" alt="" width="80%"> -->
-          <ion-img-viewer [src]="imgUrllistrik" [slideOptions]="{ zoom: { maxRatio: 7}}"></ion-img-viewer>
+          <!-- <ion-img-viewer title="Photo Meteran/No. Rek. Listrik" text=""
+            [src]="picListrik" alt="" gesture="true">
+          </ion-img-viewer> -->
+          <img [src]="picListrik">
+          <!-- <label><b>{{lbListrik}}</b></label> -->
         </ion-card>
-
-        <label for="uname"><b>Daya Listrik :</b></label>
-        <ion-card class="data">
-          <label for="uname"><b>100kWh</b></label>
-        </ion-card>
-
-        <label for="uname"><b>Usaha :</b></label>
-        <ion-card class="data">
-          <label for="uname"><b>Y / N</b></label>
-        </ion-card>
-
-        <label for="uname"><b>Jaringan :</b></label>
-        <ion-card class="data">
-          <label for="uname"><b>Y / N</b></label>
-        </ion-card>
-
-        <label for="uname"><b>Jarak :</b></label>
-        <ion-card class="data">
-          <label for="uname"><b>1 centimeter</b></label>
-        </ion-card>
-
-        <label for="uname"><b>Location :</b></label>
-        <ion-card class="data">
-         
-          <a href="http://maps.google.com/maps?q=-6.620017,106.814919" class="card-link" target="_blank"><b>http://maps.google.com/maps?q=-6.620017,106.814919</b></a>
-          
-        </ion-card>
-
-        <!-- <button type="submit" routerLink="/report">Back</button> -->
+        <button (click)="getPhotoListrik()" class="coord" expand="block" fill="clear" shape="round" size="small">
+          <b><ion-icon slot="start" name="image-outline"></ion-icon>
+          Show Photo</b>
+        </button>
       </div>
     </form>
   </div>

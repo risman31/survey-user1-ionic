@@ -20,4 +20,4 @@ import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
   ],
   declarations: [DetailsPage]
 })
-export class DetailsPageModule {}
+export class DetailsPageModule { }

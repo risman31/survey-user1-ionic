@@ -8,26 +8,28 @@
 
   <ion-item lines="none">
     <ion-avatar slot="end">
-      <img src="assets/images/elon.jpg" alt="" />
+      <img src="assets/images/logo bulat.jpg" alt="" />
     </ion-avatar>
     <ion-label slot="start">
       <p>Hello,</p>
-      <h3>Elon Musk</h3>
+      <h3>{{nama}}</h3>
+
+
     </ion-label>
   </ion-item>
 
   <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item lines="none" slot="header">
-        <ion-icon name="settings-outline"></ion-icon>
+        <ion-icon name="settings-outline"> </ion-icon>
       </ion-item>
       <div slot="content">
-        <ion-button expand="block" fill="clear" shape="round" routerLink="/login">
+        <ion-button class="acr" expand="block" fill="clear" shape="round" (click)="logout()">
           Logout
         </ion-button>
       </div>
       <div class="btn-acr" slot="content">
-        <ion-button expand="block" fill="clear" shape="round" routerLink="#">
+        <ion-button class="acr" expand="block" fill="clear" shape="round" (click)="changePW()">
           Change Password
         </ion-button>
       </div>
@@ -38,7 +40,7 @@
   <div class="slides ion-margin-bottom">
     <ion-slides options="slidesOptions">
       <ion-slide>
-        <ion-card class="satu">
+        <ion-card class="satu" (click)="surveyForm()">
           <ion-card-header>
             <div class="main">
               <img src="assets/images/survey.png" />
@@ -46,9 +48,11 @@
             <!-- <img class="files" src="assets/images/perumda.png" /> -->
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-title class="ion-text-center"><strong>FORM SURVEY</strong></ion-card-title> <br>
+            <ion-card-title class="ion-text-center"><strong>FORMULIR SURVEY</strong></ion-card-title> <br>
             <!-- <ion-card-subtitle class="ion-text-right">10/50 Data</ion-card-subtitle> -->
-            <a href="#" routerLink="/survey" class="card-link">View</a>
+            <button (click)="surveyForm()" expand="block" fill="clear" shape="round" size="small">
+              Click to View
+            </button>
             <!-- <ion-label routerLink="/report" color="primary">View</ion-label> -->
           </ion-card-content>
         </ion-card>
@@ -59,7 +63,7 @@
   <div class="slides ion-margin-bottom">
     <ion-slides options="slidesOptions">
       <ion-slide>
-        <ion-card class="satu">
+        <ion-card class="satu" (click)="surveyList()">
           <ion-card-header>
             <div class="main">
               <img src="assets/images/folders.png" />
@@ -67,8 +71,10 @@
           </ion-card-header>
           <ion-card-content class="ion-text-center">
             <ion-card-title class="ion-text-center"><strong>REPORT SURVEY</strong></ion-card-title> <br>
-            <a href="#" routerLink="/report" class="card-link">View</a>
-            <ion-card-subtitle class="ion-text-right">10 Data</ion-card-subtitle>
+            <button (click)="surveyList()" type="submit" expand="block" fill="clear" shape="round" size="small">
+              Click to View
+            </button>
+            <!-- <ion-card-subtitle class="ion-text-right">10 Data</ion-card-subtitle> -->
           </ion-card-content>
         </ion-card>
       </ion-slide>

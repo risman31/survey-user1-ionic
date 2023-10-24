@@ -1,9 +1,13 @@
-
-
 <ion-content [fullscreen]="true">
   <ion-header class="ion-no-border">
     <ion-toolbar id="hdr">
-      <ion-button slot="start" class="bordered" fill="solid" id="notf" routerLink="/dashboard">
+      <ion-button
+        slot="start"
+        class="bordered"
+        fill="solid"
+        id="notf"
+        (click)="backPage()"
+      >
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
       <ion-title>Survey</ion-title>
@@ -17,72 +21,280 @@
       </div>
 
       <div class="container">
-        <label for="nama"><b>Nama</b></label>
-        <ion-input type="text" placeholder="Masukan Nama Sesuai KTP" name="nama" required></ion-input>
+        <label><b>Nama Lengkap</b></label>
+        <ion-input
+          type="text"
+          placeholder="Masukan Nama Sesuai KTP"
+          [(ngModel)]="nama"
+          name="nama"
+        ></ion-input>
 
-        <label for="alamat"><b>Alamat</b></label>
-        <ion-input type="text" placeholder="Masukan Alamat Sesuai KTP" name="alamat" required></ion-input>
-        
-        <label for="nohp"><b>No. Handphone</b></label>
-        <ion-input type="number" placeholder="Masukan No. Handphone" name="nohp" required></ion-input>
+        <label><b>Nomor KTP (NIK)</b></label>
+        <ion-input
+          type="number"
+          placeholder="Masukan NIK"
+          [(ngModel)]="apiService.nik"
+          name="nik"
+        ></ion-input>
 
-        <!-- <label for="nama"><b>Tanggal</b></label>
-        <ion-input type="datetime-local" placeholder="Masukan Tanggal Pengisian Survey" name="tanggal" required></ion-input> -->
+        <label><b>Alamat</b></label>
+        <ion-input
+          type="text"
+          placeholder="Masukan Alamat Sesuai KTP"
+          [(ngModel)]="alamat"
+          name="alamat"
+        ></ion-input>
 
-        <label for="ktp"><b>Foto KTP</b></label>
-        <ion-input type="file" placeholder="Pilih File" name="ktp" required></ion-input>
+        <label><b>Kecamatan</b></label>
+        <ion-select placeholder="Pilih Kecamatan" [(ngModel)]="selectedKecamatan" (ionChange)="onKecamatanChange($event)" name="kecamatan">
+          <ion-select-option (click)="loadKelurahan()" *ngFor="let kecamatan of kecamatanList" [value]="kecamatan.id">
+            {{ kecamatan.kecamatan }}
+          </ion-select-option>
+        </ion-select>
 
-        <label for="kk"><b>Foto KK</b></label>
-        <ion-input type="file" placeholder="Pilih File" name="kk" required></ion-input>
+        <label><b>Kelurahan</b></label>
+        <ion-select placeholder="Pilih Kelurahan" [(ngModel)]="selectedKelurahan" name="kelurahan">
+          <ion-select-option *ngFor="let kelurahan of kelurahanList" [value]="kelurahan.id">
+            {{ kelurahan.kelurahan }}
+          </ion-select-option>
+        </ion-select>
 
-        <label for="rumah"><b>Foto Rumah</b></label>
-        <ion-input type="file" placeholder="Pilih File" name="rumah" required></ion-input>
+        <label><b>RT</b></label>
+        <ion-input
+          type="number"
+          class="rt"
+          placeholder="00"
+          [(ngModel)]="rt"
+          name="rt"
+        ></ion-input>
 
-        <label for="penghuni"><b>Jumlah Penghuni</b></label>
-        <ion-input type="text" placeholder="Masukan Jumlah Penghuni" name="penghuni" required></ion-input>
+        <label><b>RW</b></label>
+        <ion-input
+          type="number"
+          class="rw"
+          placeholder="00"
+          [(ngModel)]="rw"
+          name="rw"
+        ></ion-input><br />
 
-        <label for="listrik"><b>Foto No. Rek Listrik</b></label>
-        <ion-input type="file" placeholder="Pilih File" name="listrik" required></ion-input>
+        <label><b>No. Handphone</b></label>
+        <ion-input
+          type="number"
+          placeholder="Masukan No. Handphone"
+          [(ngModel)]="no_hp"
+          name="no_hp"
+        ></ion-input>
 
-        <label for="jarak"><b>Daya Listrik</b></label>
-        <ion-input type="text" placeholder="Masukan Jarak" name="jarak" required></ion-input>
-        
-        <label for="usaha"><b>Ada Usaha / Tidak</b></label>
-          <ion-radio-group>
-            <ion-item lines="none">
-              <ion-label>Ada</ion-label>
-              <ion-radio slot="start" value="ada"></ion-radio>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-label>Tidak Ada</ion-label>
-              <ion-radio slot="start" value="tidak"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+        <label><b>Photo KTP</b></label>
+        <button size="small" (click)="selectImage()" class="btnphoto">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          <ion-label>Upload Photo KTP</ion-label>
+        </button>
 
-        <label for="jaringan"><b>Sudah Ada Jaringan / Belum</b></label>
+        <ion-card class="gambar">
+          <img [src]="photo" />
+          <!-- <label><b>{{jenis}}</b></label> -->
+        </ion-card>
 
-        <ion-radio-group>
+        <label><b>Photo KK</b></label>
+        <button size="small" (click)="selectImageKK()" class="btnphoto">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          <ion-label>Upload Photo KK</ion-label>
+        </button>
+
+        <ion-card class="gambar">
+          <img [src]="photokk" />
+        </ion-card>
+
+        <label><b>Photo Rumah</b></label>
+        <button size="small" (click)="selectImageRumah()" class="btnphoto">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          <ion-label>Upload Photo Rumah</ion-label>
+        </button>
+
+        <ion-card class="gambar">
+          <img [src]="photorumah" />
+        </ion-card>
+
+        <label><b>Photo Meteran/No.Rek.Listrik</b></label>
+        <button size="small" (click)="selectImageListrik()" class="btnphoto">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          <ion-label>Upload Photo Listrik</ion-label>
+        </button>
+
+        <ion-card class="gambar">
+          <img [src]="photolistrik" />
+        </ion-card>
+
+        <label><b>Jumlah Penghuni Rumah</b></label>
+        <ion-input
+          class="num"
+          type="number"
+          placeholder="Masukan Jumlah Penghuni"
+          [(ngModel)]="jml_penghuni"
+          name="jml_penghuni"
+        ></ion-input>
+        <label class="num"><b>(Orang)</b></label
+        ><br />
+
+        <label><b>Luas bangunan</b></label>
+        <ion-input
+          class="num"
+          type="number"
+          [(ngModel)]="luasbangunan"
+          placeholder="Masukan Luas Bangunan"
+          name="luas"
+        ></ion-input>
+        <label class="num"><b>(M<sup>2</sup>)</b></label
+        ><br />
+
+        <label><b>Daya Listrik</b></label>
+        <ion-input
+          class="num"
+          type="number"
+          placeholder="Masukan Daya Listrik"
+          [(ngModel)]="daya_listrik"
+          name="daya_listrik"
+        ></ion-input>
+        <label class="num"><b>(VA)</b></label
+        ><br />
+
+        <label><b>Ada Usaha / Tidak</b></label>
+        <ion-radio-group
+          [allowEmptySelection]="true"
+          [(ngModel)]="usaha"
+          name="usaha"
+        >
           <ion-item lines="none">
             <ion-label>Ada</ion-label>
-            <ion-radio slot="start" value="ada"></ion-radio>
+            <ion-radio slot="start" value="Ada"></ion-radio>
           </ion-item>
           <ion-item lines="none">
             <ion-label>Tidak Ada</ion-label>
-            <ion-radio slot="start" value="tidak"></ion-radio>
+            <ion-radio slot="start" value="Tidak Ada"></ion-radio>
           </ion-item>
         </ion-radio-group>
 
-        <label for="jarak"><b>Berapa Jaraknya</b></label>
-        <ion-input type="text" placeholder="Masukan Jarak" name="jarak" required></ion-input>
+        <label><b>Sudah Ada Jaringan / Tidak</b></label>
+        <ion-radio-group
+          [allowEmptySelection]="true"
+          [(ngModel)]="jaringan"
+          name="jaringan"
+        >
+          <ion-item lines="none">
+            <ion-label>Ada</ion-label>
+            <ion-radio slot="start" value="Ada"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Tidak Ada</ion-label>
+            <ion-radio slot="start" value="Tidak Ada"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
 
-        <label for="lokasi"><b>Share Location</b></label>
-        <!-- <button type="submit" (click)="share()">Share</button> -->
-        <ion-input type="text" placeholder="Salin Link Maps" name="lokasi" required></ion-input>
-        <ion-button (click)="share()" expand="block" fill="clear" shape="round" size="small">
-          Dapatkan Link Maps?
-        </ion-button>
+        <label><b>Berapa Jaraknya</b></label>
+        <ion-input
+          type="number"
+          class="num"
+          placeholder="Jika Sudah Ada Jaringan"
+          [(ngModel)]="jarak_jaringan"
+          name="jarak_jaringan"
+        ></ion-input>
+        <label class="num"><b>(Meter)</b></label
+        ><br />
 
-        <button type="submit" routerLink="/report">Simpan</button>
+        <label><b>No. Body Meter</b></label>
+        <ion-input
+          type="text"
+          [(ngModel)]="nometer"
+          placeholder="Jika Sudah Ada Body Meter"
+          name="no_hp"
+        ></ion-input>
+
+        <label><b>Keterangan</b></label>
+        <ion-input
+          type="text"
+          [(ngModel)]="keterangan"
+          placeholder="Masukan Keterangan"
+          name="keterangan"
+        ></ion-input>
+
+        <button
+          class="coord"
+          (click)="loadMap()"
+          (click)="showCard = true"
+          expand="block"
+          fill="clear"
+          shape="round"
+          size="small"
+        >
+          <ion-icon slot="start" name="location-outline"></ion-icon>
+          Tampilkan Maps
+        </button>
+
+        <ion-card *ngIf="showCard" class="vmaps">
+          <div class="map-wrapper">
+            <div id="map_center">
+              <img src="assets/icon/placeholder.png" />
+            </div>
+            <div #map id="map"></div>
+          </div>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4">
+                <b>Lattitude</b>
+              </ion-col>
+              <ion-col> {{latitude}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">
+                <b>Longitude</b>
+              </ion-col>
+              <ion-col> {{longitude}} </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <!-- <button
+            class="coordsv"
+            (click)="showCard = false"
+            expand="block"
+            fill="clear"
+            shape="round"
+            size="small"
+          >
+            <ion-icon
+              slot="start"
+              name="location-outline"
+              (click)="setMaps()"
+            ></ion-icon>
+            Simpan Titik Koordinat
+          </button> -->
+        </ion-card>
+
+        <label [style.display]="'none'"><b>Koordinat Lokasi</b></label>
+        <ion-input
+          [style.display]="'none'"
+          disabled="true"
+          type="text"
+          value="{{latitude}}, {{longitude}}"
+          placeholder="Masukan Koordinat Lokasi"
+          [(ngModel)]="lokasi"
+          name="lokasi"
+        ></ion-input>
+
+        <button
+          type="submit"
+          (click)="showCard = false"
+          (click)="uploadData()"
+        >
+          Simpan
+        </button>
+        <!-- (click)="submitKTP()"
+          (click)="submitKK()"
+        (click)="submitRumah()"
+          (click)="submitListrik()"
+       
+         -->
       </div>
     </form>
   </div>

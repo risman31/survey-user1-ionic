@@ -6,20 +6,22 @@ ion-header {
     }
   }
 }
+
 #hdr {
   // --background: rgba(45,112,229,1);
   --background: #ffffff;
 }
+
 #notf {
   font-family: "Lato", sans-serif;
   --background: #ffffff;
   --color: black;
 }
+
 #icn {
-  // --background: rgba(45,112,229,1);
-  // color: white;
   color: #2052a3;
 }
+
 ion-title {
   font-size: 20px;
   text-align: center;
@@ -47,30 +49,80 @@ ion-content {
     padding: 6px 20px;
     color: #ffffff;
 
-    ion-item {
-      // --background: rgba(255,255,255,.1);
+    ion-item.report {
       --background: url("/assets/images/pdam-btk.png");
-      // --background: #ffffff43;
-      padding: 0;
       margin: 14px 0;
       --border-radius: 14px;
-      // color: #FFFFFF;
       color: rgba(0, 61, 121);
-      font-weight: 600;
+
+      ion-col.col {
+        margin-left: -10px;
+      }
+
+      ion-col.lom {
+        margin-left: 10px;
+      }
 
       ion-label {
         font-family: "Lato", sans-serif;
-        padding: 6px 0;
+        margin-left: -25px;
+        margin-right: -5px;
 
         h4 {
           font-weight: 600;
           font-size: 16px;
         }
+
         h6 {
           // color: rgba(255,255,255,.66);
           color: rgba(0, 61, 121);
         }
       }
+    }
+  }
+
+  // .info{
+  //   font-family: "Lato", sans-serif;
+  //   color:#858585;
+  //   margin-left: 25px;
+  // }
+
+  ion-item.inputdata {
+    --background: #ffffff00;
+    --border-radius: 14px;
+    color: rgb(255, 255, 255);
+    font-family: "Lato", sans-serif;
+    width: 100%;
+    margin: 0 -10px;
+
+    ion-select {
+      margin-left: 50px;
+    }
+  }
+
+  ion-item.inputfilter {
+    --background: #ffffff00;
+    --border-radius: 14px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-family: "Lato", sans-serif;
+    width: 90%;
+    // margin: 0 -10px;
+    margin: 8px 0;
+    margin-left: 10px;
+
+    ion-select{
+      font-size: 14px;
+      width: 80%;
+      padding: 10px 20px;
+      margin: 8px 0;
+      margin-left: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      color: rgb(255, 255, 255);
+      background-color: #ffffff00;
+      margin-bottom: 5px;
     }
   }
 
@@ -88,6 +140,22 @@ ion-content {
     border: none;
     cursor: pointer;
     border-radius: 10px;
+  }
+
+  button.coord {
+    font-size: 12px;
+    background-color: #214e95;
+    color: #ffffff;
+    padding: 8px 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    width: 93%;
+    height: auto;
+    border: 1px solid;
+    cursor: pointer;
+    // border-radius: 20px;
+    border-color: #ffffff;
   }
 
   button:hover {

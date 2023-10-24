@@ -11,25 +11,67 @@
   </ion-header>
   
   <div class="container">
-    <!-- <ion-searchbar></ion-searchbar> -->
+    <ion-searchbar Placeholder="Search Data" [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
 
-    <ion-item lines="none">
+    <ion-item class="inputfilter" lines="none">
+    <label>Bulan: </label>
+    <ion-select [(ngModel)]="selectedMonth">
+      <ion-select-option *ngFor="let month of months" [value]="month.value">{{ month.name }}</ion-select-option>
+    </ion-select>
+      <!-- <ion-select [(ngModel)]="selectedMonth"> 
+        <ion-select-option value="01">Januari</ion-select-option>
+        <ion-select-option value="02">Februari</ion-select-option>
+        <ion-select-option value="03">Maret</ion-select-option>
+        <ion-select-option value="04">April</ion-select-option> 
+        <ion-select-option value="05">Mei</ion-select-option>
+        <ion-select-option value="06">Juni</ion-select-option> 
+        <ion-select-option value="07">Juli</ion-select-option>
+        <ion-select-option value="08">Agustus</ion-select-option> 
+        <ion-select-option value="09">September</ion-select-option>
+        <ion-select-option value="10">Oktober</ion-select-option> 
+        <ion-select-option value="11">November</ion-select-option>
+        <ion-select-option value="12">Desember</ion-select-option>
+      </ion-select> -->
+    </ion-item>
+
+    <ion-item class="inputfilter" lines="none">
+      <label>Tahun: </label>
+      <ion-select [(ngModel)]="selectedYear">
+        <ion-select-option *ngFor="let year of years" [value]="year">{{ year }}</ion-select-option>
+      </ion-select>
+      </ion-item>
+
+      <button
+      class="coord"
+      (click)="applyFilter()"
+      expand="block"
+      fill="clear"
+      shape="round"
+      size="small"
+    ><ion-icon name="filter-outline"></ion-icon>
+      Buka
+    </button>
+
+    <ion-item class="report" lines="none" *ngFor="let survei of surveiData | filter:filterTerm; let i=index;">
       <ion-grid>
         <ion-row class="ion-align-items-center">
-          <ion-col size="3">
+          <ion-col class="col" size="3">
+          <!-- <label>{{i+1}}</label> -->
             <ion-button id="icn" fill="clear">
-              <ion-icon slot="icon-only" name="document"></ion-icon>
+              <h6>{{i+1}}</h6>
+              <!-- <ion-icon slot="icon-only" name="document"></ion-icon> -->
             </ion-button>
           </ion-col>
-          <ion-col size="7">
+          <ion-col class="lom" size="7">
             <ion-label>
-              <h4>Survey Satu</h4>
-              <h6>Data</h6>
-              <h6>23-03-2023</h6>
+              <h4>{{survei.nama}}</h4>
+              <h6>{{survei.ktp}}</h6>
+              <!-- <h6>{{survei.alamat}}</h6> -->
+              <h6>{{survei.tanggal}}</h6>
             </ion-label>
           </ion-col>
           <ion-col size="2">
-            <ion-button id="icn" fill="clear" routerLink="/details">
+            <ion-button id="icn" fill="clear" (click)="getDataSurvei(survei.ktp)">
               <ion-icon slot="icon-only" name="eye"></ion-icon>
             </ion-button>
           </ion-col>
@@ -37,149 +79,8 @@
       </ion-grid>
     </ion-item>
 
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <ion-button id="icn" fill="clear">
-              <ion-icon slot="icon-only" name="document"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label>
-              <h4>Survey Dua</h4>
-              <h6>Data</h6>
-              <h6>23-03-2023</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="2">
-            <ion-button id="icn" fill="clear" routerLink="/details">
-              <ion-icon slot="icon-only" name="eye"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <ion-button id="icn" fill="clear">
-              <ion-icon slot="icon-only" name="document"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label>
-              <h4>Survey Tiga</h4>
-              <h6>Data</h6>
-              <h6>23-03-2023</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="2">
-            <ion-button id="icn" fill="clear" routerLink="/details">
-              <ion-icon slot="icon-only" name="eye"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <ion-button id="icn" fill="clear">
-              <ion-icon slot="icon-only" name="document"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label>
-              <h4>Survey Empat</h4>
-              <h6>Data</h6>
-              <h6>23-03-2023</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="2">
-            <ion-button id="icn" fill="clear" routerLink="/details">
-              <ion-icon slot="icon-only" name="eye"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <ion-button id="icn" fill="clear">
-              <ion-icon slot="icon-only" name="document"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label>
-              <h4>Survey Lima</h4>
-              <h6>Data</h6>
-              <h6>23-03-2023</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="2">
-            <ion-button id="icn" fill="clear" routerLink="/details">
-              <ion-icon slot="icon-only" name="eye"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <ion-button id="icn" fill="clear">
-              <ion-icon slot="icon-only" name="document"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label>
-              <h4>Survey Enam</h4>
-              <h6>Data</h6>
-              <h6>23-03-2023</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="2">
-            <ion-button id="icn" fill="clear" routerLink="/details">
-              <ion-icon slot="icon-only" name="eye"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <ion-button id="icn" fill="clear">
-              <ion-icon slot="icon-only" name="document"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label>
-              <h4>Survey Tujuh</h4>
-              <h6>Data</h6>
-              <h6>23-03-2023</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="2">
-            <ion-button id="icn" fill="clear" routerLink="/details">
-              <ion-icon slot="icon-only" name="eye"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
     <!-- <button type="submit" routerLink="/tabs/tab1">Back</button> -->
   </div>
+
+  <!-- <label class="info">Pilih Dan Terapkan Filter Bulan Dan Tahun Untuk Menampilkan Data</label> -->
 </ion-content>
